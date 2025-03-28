@@ -40,9 +40,28 @@ from producto;
 
 
 -- Subqueries en SELECT
-
+-- Un subquery en la cláusula SELECT también puede utilizarse para comparar una columna consigo misma aplicando una función de agregación.
  select id_venta, pago,
 	(select round(avg(pago), 2)
     from pagos)
 from pagos;
+ 
+ select id_cliente, venta,
+	(select avg(venta)
+    from ventas)
+ from ventas;
+ 
+ -- Subqueries en FROM
+ -- se usa para crear una tabla temporal que puede ser consultada en la consulta principal
+ -- podemos hacer calculos un poco más complejos
+ select *
+ from (
+ select 
+ avg(venta) as avg_venta, 
+ max(pago) as max_pago,
+ min(saldo) as min_saldo
+ from morosos
+ ) as agg_table;
+ 
+ 
  

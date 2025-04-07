@@ -1,6 +1,6 @@
 -- Vamos a usar SUBCONSULTAS cuando necesito obtener datos adicionales para usar 
 -- en la consulta principal
---	Filtremos con un calculo previo:
+-- Filtremos con un calculo previo:
 -- Si necesitamos encontrar registros basados con un valor agregado
 --		min, max, avg -> dentro de un where
 SELECT * FROM STATION
